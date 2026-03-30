@@ -30,10 +30,6 @@ export async function GET() {
     .map((obj) => {
       const key = obj.Key!;
       const filename = path.basename(key);
-      console.log(
-        "Generated URL:",
-        `https://s3.${process.env.WASABI_REGION}.wasabisys.com/${BUCKET}/${key.split("/").map(encodeURIComponent).join("/")}`,
-      );
       return {
         id: filename.slice(0, filename.lastIndexOf(".")),
         name: filename,
