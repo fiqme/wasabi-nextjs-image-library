@@ -38,7 +38,7 @@ export async function POST(request: NextRequest) {
     uploaded.push({
       id,
       name: filename,
-      url: `https://s3.${process.env.WASABI_REGION}.wasabisys.com/${BUCKET}/${key}`,
+      url: `/api/image?key=${encodeURIComponent(key)}`,
       size: file.size,
     });
   }
